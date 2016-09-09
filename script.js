@@ -2,25 +2,25 @@ var snowflakes = [];
 var can = document.getElementById("m-can");
 var ct = can.getContext('2d');
 init();
-// 定时器
+// 定时器 设定动画刷新的时间周期
 setInterval(function(){
 	snowflakeNum();
-	ct.clearRect(0,0,700,700);
+	ct.clearRect(0,0,600,400);
 	init();
 	dropDown();
 },50);
 // 初始化
 function init(){
-	ct.rect(0,0,700,700);
+	ct.rect(0,0,600,400);
 	ct.fillStyle = '#000';
 	ct.fill();
 }
 // 产生随机雪花
 function createSnow(){
-	var ix = Math.random()*700;
-	var iy = Math.random()*20;
-	var ir = Math.random()*3;
-	var ivy = Math.random()*0.5+1;//????????变化的y????
+	var ix = Math.random()*600;
+	var iy = Math.random()*50;
+	var ir = Math.random()*2;
+	var ivy = Math.random()*5+2;
 	var snowflake = {
 		x:ix,
 		y:iy,
@@ -43,11 +43,11 @@ function dropDown(){
 		snowflakes[i].y+=snowflakes[i].vy;
 	}
 }
-// 画雪花
+// 画雪花???
 function drawSnow(x,y,r,obj){
 	obj.fillStyle = '#fff';
 	obj.beginPath();
 	obj.arc(x,y,r,0,Math.PI*2,true);
 	obj.closePath();
-	obj.fill;
+	obj.fill();
 }
